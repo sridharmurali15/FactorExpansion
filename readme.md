@@ -1,5 +1,12 @@
 # README
 
+
+## Problem Statement
+
+Implement a deep learning model that learns to expand single variable polynomials, where the model takes the factorized sequence as input and predict the expanded sequence. This is an exercise to demonstrate your machine learning prowess, so please refrain from parsing or rule-based methods.
+
+## Solution
+
 ### A seq2seq, encode-decoder with attention model was built to expand the factors
 
 'requirements.txt' file has all the packages with the versions needed to run main.py
