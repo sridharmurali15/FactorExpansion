@@ -1,0 +1,56 @@
+Model: "model_1"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_1 (InputLayer)           [(None, 29)]         0           []                               
+                                                                                                  
+ embedding (Embedding)          (None, 29, 654)      23544       ['input_1[0][0]']                
+                                                                                                  
+ bidirectional (Bidirectional)  [(None, 29, 512),    1865728     ['embedding[0][0]']              
+                                 (None, 256),                                                     
+                                 (None, 256),                                                     
+                                 (None, 256),                                                     
+                                 (None, 256)]                                                     
+                                                                                                  
+ concatenate (Concatenate)      (None, 512)          0           ['bidirectional[0][1]',          
+                                                                  'bidirectional[0][3]']          
+                                                                                                  
+ concatenate_1 (Concatenate)    (None, 512)          0           ['bidirectional[0][2]',          
+                                                                  'bidirectional[0][4]']          
+                                                                                                  
+==================================================================================================
+Total params: 1,889,272
+Trainable params: 1,889,272
+Non-trainable params: 0
+__________________________________________________________________________________________________
+Model: "model_4"
+__________________________________________________________________________________________________
+ Layer (type)                   Output Shape         Param #     Connected to                     
+==================================================================================================
+ input_2 (InputLayer)           [(None, None)]       0           []                               
+                                                                                                  
+ embedding_1 (Embedding)        (None, None, 654)    23544       ['input_2[0][0]']                
+                                                                                                  
+ input_6 (InputLayer)           [(None, 512)]        0           []                               
+                                                                                                  
+ input_7 (InputLayer)           [(None, 512)]        0           []                               
+                                                                                                  
+ lstm_1 (LSTM)                  [(None, None, 512),  2390016     ['embedding_1[0][0]',            
+                                 (None, 512),                     'input_6[0][0]',                
+                                 (None, 512)]                     'input_7[0][0]']                
+                                                                                                  
+ input_8 (InputLayer)           [(None, 29, 512)]    0           []                               
+                                                                                                  
+ attention_layer (AttentionLaye  ((None, None, 512),  524800     ['input_8[0][0]',                
+ r)                              (None, None, 29))                'lstm_1[0][0]']                 
+                                                                                                  
+ concat_layer (Concatenate)     (None, None, 1024)   0           ['lstm_1[0][0]',                 
+                                                                  'attention_layer[0][0]']        
+                                                                                                  
+ dense (Dense)                  (None, None, 36)     36900       ['concat_layer[0][0]']           
+                                                                                                  
+==================================================================================================
+Total params: 2,975,260
+Trainable params: 2,975,260
+Non-trainable params: 0
+__________________________________________________________________________________________________
