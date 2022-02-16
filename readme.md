@@ -3,7 +3,7 @@
 
 ## Problem Statement
 
-Implement a deep learning model that learns to expand single variable polynomials, where the model takes the factorized sequence as input and predict the expanded sequence. This is an exercise to demonstrate your machine learning prowess, so please refrain from parsing or rule-based methods.
+Implement a deep learning model that learns to expand single variable polynomials, where the model takes the factorized sequence as input and predict the expanded sequence.
 
 ## Solution
 
